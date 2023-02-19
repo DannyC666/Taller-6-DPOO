@@ -24,10 +24,7 @@ public class Combo implements Producto{
 
 
     public void agregarItemACombo(Producto itemCombo){
-        String nombreItem = itemCombo.getNombre();
-        int precioitem = itemCombo.getPrecio();
-        Map<String, Integer> preciosItem = new HashMap<>();;
-        preciosItem.put(nombreItem,precioitem);
+
 
 
     }
@@ -46,7 +43,9 @@ public class Combo implements Producto{
 
     @Override
     public String generarTextoFactura() {
-        return null;
+        String comboFactura = "Nombre del producto: "+this.nombreCombo  + "Precio: -- ";
+
+        return comboFactura;
     }
 }
 

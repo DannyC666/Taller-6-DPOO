@@ -52,7 +52,7 @@ public class ProductoAjustado implements Producto{
         String ingredientesEliminados = "";
 
         for (Ingrediente cadaIngrediente : this.agregados) {
-            ingredientesAgregados = "Ingredientes agregados: "+cadaIngrediente.getNombre();
+            ingredientesAgregados = "Ingredientes agregados: "+cadaIngrediente.getNombre() + "   Precio: "+ cadaIngrediente.costoAdicional();
         }
         for (Ingrediente cadaIngrediente : this.eliminados) {
             ingredientesEliminados = "Ingredientes eliminados: "+cadaIngrediente.getNombre();

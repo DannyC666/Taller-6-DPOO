@@ -27,6 +27,8 @@ public class Restaurante {
     public void iniciarPedido(String nombreCliente, String direccionCliente, ArrayList<Producto> productos){
         Pedido nuevoPedido = new Pedido(nombreCliente,direccionCliente,productos);
         this.pedidoEnCurso = nuevoPedido;
+
+
     }
     public void cerrarYGuardarPedido(){
         pedidos.add(pedidoEnCurso);
@@ -36,9 +38,7 @@ public class Restaurante {
     }
 
     public List<Pedido> getPedidos(){
-        System.out.println(this.pedidos);
-        // Pedido pPrueba
-        System.out.println();
+
         return this.pedidos;}
 
     public Pedido getPedidoEnCurso(){
@@ -47,11 +47,13 @@ public class Restaurante {
     }
 
     public List<Producto> getMenuBase()  {
-
         return this.menuBase;
     }
     public List<Ingrediente> getIngredientes(){
         return this.ingredientes;
+    }
+    public List<Combo> getCombos(){
+        return this.combos;
     }
 
 

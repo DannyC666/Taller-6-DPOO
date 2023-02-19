@@ -25,6 +25,10 @@ public class Pedido {
 
         return this.idPedido;
     }
+    public void setIdPedido(int idPedido){
+        this.idPedido = idPedido;
+    }
+
 
     public void agregarProducto(Producto nuevoItem){
 
@@ -71,9 +75,6 @@ public class Pedido {
         String facturaProductos = "";
         String ingredientesAgregados = "";
 
-
-
-        String numPedidos = "Cantidad de pedidos: "+numeroPedidos;
         String identificador = "ID pedido: "+idPedido;
         String nombre = "Nombre del cliente: " + nombreCliente;
         String direccion = "Direccion del cliente: "+ direccionCliente;
@@ -81,25 +82,24 @@ public class Pedido {
         String precioTotal = "Precio total del pedido: " + gerPrecioTotalPedido();
         String sumaIVA = "Costo agregado por IVA 19%: "+ getPrecioIVAPedido();
         String headerProductos = "-------- Los productos agregados fueron: --------";
-
         for (Producto cadaPedido : this.listaPedido) {
             facturaProductos = facturaProductos + cadaPedido.generarTextoFactura()+"\n";
-            ingredientesAgregados = ajustarProducto.generarTextoFactura();
-
+            if (ajustarProducto != null){
+                ingredientesAgregados = ajustarProducto.generarTextoFactura();
+            }
         }
 
-
         String facturaCompleta =
-                numPedidos +"\n"+
                 identificador + "\n" +
                 nombre +"\n"+
                 direccion +"\n" +
+                        headerProductos +"\n"+
                         facturaProductos+"\n"+
                         ingredientesAgregados+"\n"+
                 precioNeto+ "\n"+
-                precioTotal + "\n"+
-                sumaIVA + "\n"+
-                headerProductos +"\n"
+                        sumaIVA + "\n"+
+                precioTotal + "\n"
+
                 ;
         System.out.println(facturaCompleta);
         return facturaCompleta;
@@ -110,7 +110,3 @@ public class Pedido {
     }
 
 }
-    /*private int numeroPedidos;
-    private int idPedido;
-    private String nombreCliente;
-    private String direccionCliente;*/
