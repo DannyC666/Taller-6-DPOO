@@ -4,7 +4,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Pedido {
+public class Pedido  {
     //Atributos
     private int numeroPedidos;
     private int idPedido;

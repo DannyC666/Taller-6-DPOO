@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="d6204bac-cd32-4e4e-b171-fad8c8398993" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Taller 2 - Hamburguesas_esqueleto.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Taller 2 - Hamburguesas_esqueleto.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Taller 2 - Hamburguesas_esqueleto/taller2/consola/Aplicacion.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Taller 2 - Hamburguesas_esqueleto/taller2/consola/Aplicacion.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/taller2/consola/Aplicacion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/taller2/consola/Aplicacion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/taller2/modelo/Pedido.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/taller2/modelo/Pedido.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2LwCCT0PCw1rZm9lvyKPw6gWNqw" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Danny Muñoz/Downloads/DPOO Files/Taller 2 - Hamburguesas_esqueleto/Taller 2 - Hamburguesas_esqueleto&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.ide.settings.uml&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="d6204bac-cd32-4e4e-b171-fad8c8398993" name="Changes" comment="" />
+      <created>1676772633364</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1676772633364</updated>
+      <workItem from="1676772634507" duration="361000" />
+      <workItem from="1676773059424" duration="5214000" />
+      <workItem from="1679534799090" duration="2575000" />
+      <workItem from="1679614657033" duration="2585000" />
+      <workItem from="1679971543439" duration="12000" />
+      <workItem from="1679971568242" duration="36000" />
+      <workItem from="1679971804188" duration="2969000" />
+      <workItem from="1682476027427" duration="1050000" />
+      <workItem from="1682898081848" duration="3000" />
+      <workItem from="1682921433948" duration="8000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>

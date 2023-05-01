@@ -16,8 +16,6 @@ public class Aplicacion {
 
 
 
-
-
     public void mostrarMenu(){
         System.out.println("\nOpciones de la aplicación\n");
         System.out.println("----------Opciones----------");
