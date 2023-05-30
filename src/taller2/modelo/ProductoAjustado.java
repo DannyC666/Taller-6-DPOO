@@ -40,6 +40,9 @@ public class ProductoAjustado implements Producto{
         return precioAjustado;
     }
 
+    public ArrayList<Ingrediente> getAgregados(){return this.agregados;}
+    public ArrayList<Ingrediente> getEliminados(){return this.eliminados;}
+
     @Override
     public String getNombre() {
         return base.getNombre();
@@ -48,11 +51,11 @@ public class ProductoAjustado implements Producto{
     @Override
     public String generarTextoFactura() {
 
-        String ingredientesAgregados = "";
+        String ingredientesAgregados = "Ingredientes agregados: " +"\n";
         String ingredientesEliminados = "";
 
         for (Ingrediente cadaIngrediente : this.agregados) {
-            ingredientesAgregados = "Ingredientes agregados: "+cadaIngrediente.getNombre() + "   Precio: "+ cadaIngrediente.costoAdicional();
+            ingredientesAgregados += cadaIngrediente.getNombre() + "   Precio: "+ cadaIngrediente.costoAdicional() +"\n";
         }
         for (Ingrediente cadaIngrediente : this.eliminados) {
             ingredientesEliminados = "Ingredientes eliminados: "+cadaIngrediente.getNombre();

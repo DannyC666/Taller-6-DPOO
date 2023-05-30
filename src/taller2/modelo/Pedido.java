@@ -1,6 +1,9 @@
 package taller2.modelo;
 
+import taller2.exceptions.TotalPriceException;
+
 import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,8 +14,10 @@ public class Pedido  {
     private String nombreCliente;
     private String direccionCliente;
 
-    private ArrayList<Producto> listaPedido = new ArrayList<>();
-    private ProductoAjustado ajustarProducto;
+    public ArrayList<Producto> listaPedido;
+    public ProductoAjustado ajustarProducto;
+    TotalPriceException errorLimitPrice = new TotalPriceException();
+
 
     //Contructor
 
@@ -22,7 +27,6 @@ public class Pedido  {
         this.listaPedido = listaPedido;
     }
     public int getIdPedido(){
-
         return this.idPedido;
     }
     public void setIdPedido(int idPedido){
@@ -30,14 +34,22 @@ public class Pedido  {
     }
 
 
-    public void agregarProducto(Producto nuevoItem){
+    public void agregarProducto(Producto nuevoItem) throws IOException {
 
-        this.listaPedido.add(nuevoItem);
+        try{
+            errorLimitPrice.limitPriceError(nuevoItem.getPrecio());
+            this.listaPedido.add(nuevoItem);
+            System.out.println(nuevoItem.getNombre()+" agregado a su pedido!!");
+
+        } catch (Exception e) {
+            System.out.println("No puedes agregar " +nuevoItem.getNombre() +" ,ya que has superado el limite de 150000 para la cuenta");
+            e.printStackTrace();
+
+        }
+
     }
-
     public void iniciarProductoAjustado(ProductoMenu productoAgregado){
-        ProductoAjustado ajustarProducto = new ProductoAjustado(productoAgregado);
-        this.ajustarProducto = ajustarProducto;
+        this.ajustarProducto = new ProductoAjustado(productoAgregado);
     }
     public void agregarIngredienteProducto(Ingrediente nuevoIngrediente){
         ajustarProducto.agregarIngrediente(nuevoIngrediente);
@@ -47,7 +59,7 @@ public class Pedido  {
         ajustarProducto.eliminarIngrediente(eliminarIngrediente);
     }
 
-    private int getPrecioNetoPedido() {
+    private int getPrecioNetoPedido() throws IOException {
         int precioPedido = 0;
         int precioIngrediente = 0;
         for (Producto cadaPedido : this.listaPedido) {
@@ -61,17 +73,17 @@ public class Pedido  {
 //
         return precioPedido + precioIngrediente;
     }
-    private int gerPrecioTotalPedido(){
+    private int gerPrecioTotalPedido() throws IOException {
         int precioNeto = getPrecioNetoPedido();
         int precioTotal = (int) (precioNeto *1.19);
         return precioTotal;
     }
-    private int getPrecioIVAPedido(){
+    private int getPrecioIVAPedido() throws IOException {
         int precioNeto = getPrecioNetoPedido();
         int precioIVA = (int) (precioNeto *0.19);
         return precioIVA;
     }
-    private String gerTextoFactura(){
+    private String gerTextoFactura() throws IOException {
         String facturaProductos = "";
         String ingredientesAgregados = "";
 
@@ -93,20 +105,19 @@ public class Pedido  {
                 identificador + "\n" +
                 nombre +"\n"+
                 direccion +"\n" +
-                        headerProductos +"\n"+
-                        facturaProductos+"\n"+
-                        ingredientesAgregados+"\n"+
+                headerProductos +"\n"+
+                facturaProductos+"\n"+
+                ingredientesAgregados+"\n"+
                 precioNeto+ "\n"+
-                        sumaIVA + "\n"+
+                sumaIVA + "\n"+
                 precioTotal + "\n"
 
                 ;
         System.out.println(facturaCompleta);
         return facturaCompleta;
     }
-    public void guardarFactura(){
-        gerTextoFactura();
-
+    public String guardarFactura() throws IOException {
+        return    gerTextoFactura();
     }
 
 }

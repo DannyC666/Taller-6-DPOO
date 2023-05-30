@@ -11,6 +11,7 @@ public class CargaIngredientes extends LoaderHamburguesas {
     // Atributos
     List<Ingrediente> listIngredientes = new ArrayList<Ingrediente>();
 
+
     // Constructor
     public CargaIngredientes (String nombreArchivo){
         super(nombreArchivo);
@@ -22,6 +23,7 @@ public class CargaIngredientes extends LoaderHamburguesas {
         int costoAdicional = Integer.parseInt(tipoDato[1]);
         Ingrediente ingredientes = new Ingrediente(ingrediente,costoAdicional);
         listIngredientes.add(ingredientes);
+
     }
     public  List< Ingrediente > getListaingredientes(){return listIngredientes;}
 

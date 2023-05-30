@@ -1,5 +1,8 @@
 package taller2.modelo;
 
+import taller2.exceptions.IngredienteRepetidoException;
+
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -24,50 +27,39 @@ public class Combo implements Producto{
 
 
     public void agregarItemACombo(Producto itemCombo){
-
-
-
+        //funcionalidad empleada en pedido
     }
 
     // Metodos de la interfaz
 
     @Override
-    public int getPrecio() {
+    public int getPrecio() throws IOException {
+        int precio = 0;
+        CargaMenu productos = new CargaMenu("data/menu.txt");
+        productos.cargarDatos("data/menu.txt");
+        Map<String, Integer> mapaMenu= productos.getMapaMenu();
 
-        return 0;
+        for (String elemento : this.productosCombo) {
+            if (mapaMenu.containsKey(elemento)) {
+                int valor = mapaMenu.get(elemento);
+                precio += mapaMenu.get(elemento);
+            }
+        }
+
+            return precio;
     }
     @Override
     public String getNombre() {
         return this.nombreCombo;
     }
 
-    @Override
-    public String generarTextoFactura() {
-        String comboFactura = "Nombre del producto: "+this.nombreCombo  + "Precio: -- ";
+    public String generarTextoFactura() throws IOException {
+
+        String comboFactura = "Nombre del producto: "+this.nombreCombo  + " | Precio: $" + getPrecio();
+
 
         return comboFactura;
     }
-
-    // Cambios
-
-
-    //;la;a;alals
-    //alsllslas
-    // sadas
-    //dsad
-    ///ds
-
-    /// /asdasd
-    // dasd
-    /// fsadfads
-    ///f fasfasf asffsfsafd sdf
-    // fin cambios
-
-    // camv
-
-    //adsasd /
-
-    ///fasd
 }
 
 

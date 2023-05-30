@@ -1,11 +1,11 @@
 package taller2.controlador;
 
+import taller2.exceptions.IngredienteRepetidoException;
+import taller2.exceptions.ProductoRepetidoException;
 import taller2.modelo.*;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class Restaurante {
     //Atributos
@@ -30,7 +30,7 @@ public class Restaurante {
 
 
     }
-    public void cerrarYGuardarPedido(){
+    public void cerrarYGuardarPedido() throws IOException {
         pedidos.add(pedidoEnCurso);
         pedidoEnCurso.guardarFactura();
 
@@ -58,18 +58,39 @@ public class Restaurante {
 
 
     //Funciones de carga
-    public void cargarIngredientes(String archivoIngredientes) throws IOException {
+    public void cargarIngredientes(String archivoIngredientes) throws Exception {
 
         CargaIngredientes ingredientes = new CargaIngredientes("data/ingredientes.txt");
+        IngredienteRepetidoException expetionError = new IngredienteRepetidoException();
         ingredientes.cargarDatos("data/ingredientes.txt");
         this.ingredientes = ingredientes.getListaingredientes();
-        //System.out.println(this.ingredientes);
+        try {
+            expetionError.ingredientesRepetidos(this.ingredientes);
+        }catch (Exception e){
+            System.out.println("Hubo un error en la carga!");
+            System.out.println(e.getMessage());
+            e.printStackTrace();
+        }
+
+
     }
-    public void cargarMenu(String archivoMenu) throws IOException {
+    public void cargarMenu(String archivoMenu) throws Exception {
         CargaMenu menu = new CargaMenu("data/menu.txt");
+        ProductoRepetidoException expetionError = new ProductoRepetidoException();
         menu.cargarDatos("data/menu.txt");
         this.menuBase = menu.getListaMenu();
+        try {
+            expetionError.productosRepetidos(this.menuBase);
+        }catch (Exception e){
+            System.out.println("Hubo un error en la carga!");
+            System.out.println(e.getMessage());
+            e.printStackTrace();
+        }
+
     }
+
+
+
     public void cargarCombos(String archivoMenu) throws IOException {
 
         CargaCombos combos = new CargaCombos("data/combos.txt");

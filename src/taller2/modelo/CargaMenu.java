@@ -11,6 +11,7 @@ import java.util.Map;
 public class CargaMenu extends LoaderHamburguesas {
     //Atributos
     List<Producto> menus= new ArrayList<>();
+    Map<String, Integer> mapaMenu = new HashMap<>();
 
     //constructor
     public CargaMenu(String nombreArchivo){
@@ -24,14 +25,12 @@ public class CargaMenu extends LoaderHamburguesas {
         int precio = Integer.parseInt(tipoDato[1]);
         ProductoMenu productosMenu = new ProductoMenu(producto,precio);
         menus.add(productosMenu);
+        mapaMenu.put(tipoDato[0], Integer.valueOf(tipoDato[1]));
     }
 
-    public static void main(String[] args) throws IOException {
-        CargaMenu menu = new CargaMenu("data/menu.txt");
-        menu.cargarDatos("data/menu.txt");
-        System.out.println(menu.menus.get(1).getPrecio());
-    }
+
 
     public  List< Producto > getListaMenu(){return menus;}
+    public  Map<String, Integer> getMapaMenu(){return mapaMenu;}
 
 }

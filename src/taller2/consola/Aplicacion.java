@@ -24,7 +24,7 @@ public class Aplicacion {
 
     }
 
-    public void ejectarOpcion() throws IOException {
+    public void ejectarOpcion() throws Exception {
         mostrarMenu();
         var opcion  = consolaInput.nextLine() ;
         var opcionAplicacion = Integer.parseInt(opcion);
@@ -223,7 +223,7 @@ public class Aplicacion {
 
     }
 
-    private void iniciarPedido(int idPedido) throws IOException {
+    private void iniciarPedido(int idPedido) throws Exception {
         ArrayList<Producto> productos = new ArrayList<Producto>();
         System.out.println("Pedido iniciado!");
         //Inicializacion de la informacion
@@ -239,13 +239,12 @@ public class Aplicacion {
         restaurante.getPedidoEnCurso().setIdPedido(idPedido);
 
     }
-    private void agregarMenuPedido(int tipoProducto) throws IOException {
+    private void agregarMenuPedido(int tipoProducto) throws Exception {
 
         List<Producto> infoProductosMenu = restaurante.getMenuBase();
         var nombreProducto= infoProductosMenu.get(tipoProducto-1).getNombre();
         restaurante.getPedidoEnCurso().iniciarProductoAjustado((ProductoMenu) infoProductosMenu.get(tipoProducto-1));
         restaurante.getPedidoEnCurso().agregarProducto(infoProductosMenu.get(tipoProducto-1));
-        System.out.println(nombreProducto+" agregado a su pedido!!");
     }
 
     private void agregarIngredientePedido(int tipoProducto) throws IOException {
@@ -268,18 +267,18 @@ public class Aplicacion {
         restaurante.getPedidoEnCurso().eliminarIngredienteProducto(infoIngredientes.get(opcionTipoIngredienteC-1));
         System.out.println(nombreIngredientes+" eliminado a su pedido!");
     }
-    private void agregarComboPedido(int tipoCombo){
+    private void agregarComboPedido(int tipoCombo) throws Exception {
         List<Combo> infoCombos = restaurante.getCombos();
         var nombreProducto= infoCombos.get(tipoCombo-1).getNombre();
         restaurante.getPedidoEnCurso().agregarProducto(infoCombos.get(tipoCombo-1));
-        System.out.println(nombreProducto+" agregado a su pedido!!");
+
     }
 
-    private void guardarPedido(){
+    private void guardarPedido() throws IOException {
         restaurante.cerrarYGuardarPedido();
     }
 
-        public static void main (String[]args) throws IOException {
+        public static void main (String[]args) throws Exception {
             Aplicacion consola = new Aplicacion();
             consola.ejectarOpcion();
 
